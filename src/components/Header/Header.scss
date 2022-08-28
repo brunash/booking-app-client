@@ -3,6 +3,7 @@
     color: white;
     display: flex;
     justify-content: center;
+    position: relative;
     &__container {
         width: 100%;
         max-width: 1024px;
@@ -29,7 +30,40 @@
         cursor: pointer;
         padding: 10px;
     }
-
+    &__search {
+        height: 30px;
+        background-color: white;
+        border:3px solid #febb02;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        padding: 10px 0;
+        border-radius: 5px;
+        position: absolute;
+        bottom: -25px;
+        width: 100%;
+        max-width: 1024px;
+        &--item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        &--input {
+            border: none;
+            outline: none;
+        }
+        &--text {
+            color: lightgray;
+            cursor: pointer;
+        }
+    }
+    &__icon {
+        color: lightgray;
+    }
+    &__calendar {
+        position: absolute;
+        top: 50px;
+    }
 }
 
 .header__list--item.active {
