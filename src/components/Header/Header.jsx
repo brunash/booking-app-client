@@ -13,10 +13,12 @@ import { useState } from "react";
 import "react-date-range/dist/styles.css"; // main css file
 import "react-date-range/dist/theme/default.css"; // theme css file
 import { format } from "date-fns";
+import { useNavigate } from "react-router-dom";
 
 const Header = ({ type }) => {
   // Handling the calendar
 
+  const [destination, setDestination] = useState("");
   const [openDate, setOpenDate] = useState(false);
 
   const [date, setDate] = useState([
@@ -35,6 +37,8 @@ const Header = ({ type }) => {
     room: 1,
   });
 
+  const navigate = useNavigate();
+
   // increment/decrement number of options on click
   const handleOption = (name, operation) => {
     setOption(prev=>{return {
@@ -42,6 +46,10 @@ const Header = ({ type }) => {
       [name]: operation === "increase" ? options[name] + 1 : options[name] - 1,
     };})
   }
+
+  const handleSearch = () => {
+    navigate("/hotels", {state : { destination, date, options }});
+  };
 
   return (
     <div className="header">
@@ -89,6 +97,7 @@ const Header = ({ type }) => {
                   type="text"
                   placeholder="Where are you going?"
                   className="header__search--input"
+                  onChange={(e) => setDestination(e.target.value)}
                 />
               </div>
               <div className="header__search--item">
@@ -110,6 +119,7 @@ const Header = ({ type }) => {
                     moveRangeOnFirstSelection={false}
                     ranges={date}
                     className="header__calendar"
+                    minDate={new Date()}
                   />
                 )}
               </div>
@@ -186,7 +196,9 @@ const Header = ({ type }) => {
                 )}
               </div>
               <div className="header__search--item">
-                <button className="header__button">Search</button>
+                <button className="header__button" onClick={handleSearch}>
+                  Search
+                </button>
               </div>
             </div>
           </>

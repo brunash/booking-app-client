@@ -20,6 +20,28 @@
         color: #555;
         margin-bottom: 10px;
     }
+    &--item {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        margin-bottom: 10px;
+        >label {
+            font-size: 12px;
+        }
+        >input {
+            height: 30px;
+            border: none;
+            padding: 5px;
+        }
+        >span {
+            height: 30px;
+            background-color: white;
+            padding: 5px;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+        }
+    }
 }
 }
 
