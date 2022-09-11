@@ -23,7 +23,17 @@ const SearchItem = () => {
             You can cancel later, so lock in this great price today!
           </span>
         </div>
-        <div className="search-item__details">details</div>
+        <div className="search-item__details">
+          <div className="search-item__rating">
+            <span>Excellent</span>
+            <button>8.9</button>
+          </div>
+          <div className="search-item__details--text">
+            <span className="search-item__price">$123</span>
+            <span className="search-item__tax">Includes taxes and fees</span>
+            <button className="search-item__check-button">See availability</button>
+          </div>
+        </div>
       </div>
     );
 }

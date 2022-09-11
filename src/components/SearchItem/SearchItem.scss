@@ -19,6 +19,15 @@
      }
      &__details {
         flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        &--text {
+            text-align: right;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
      }
      &__title {
         font-size: 20px;
@@ -51,5 +60,34 @@
         font-size: 12px;
         color: #008009;
      }
-
+     &__rating {
+        display: flex;
+        justify-content: space-between;
+        >span {
+            font-weight: 500;
+        }
+        >button {
+            background-color: #003580;
+            color: white;
+            padding: 5px;
+            font-weight: bold;
+            border: none;
+        }
+     }
+     &__price {
+        font-size: 24px;
+     }
+     &__tax {
+        font-size:12px;
+        color: grey;
+     }
+     &__check-button {
+        background-color: #0071c2;
+        color: white;
+        font-weight: bold;
+        padding: 10px 5px;
+        border: none;
+        cursor: pointer;
+        border-radius: 5px;
+     }
 }
