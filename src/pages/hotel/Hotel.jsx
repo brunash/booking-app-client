@@ -32,6 +32,7 @@ const Hotel = () => {
         <Header type="list" />
         <div className="hotel__container">
           <div className="hotel__wrapper">
+            <button className='hotel__book-now'>Reserve or book now!</button>
             <h1 className="hotel__title">Grand Hotel</h1>
             <div className="hotel__address">
               <FontAwesomeIcon icon={faLocationDot} />
@@ -40,7 +41,7 @@ const Hotel = () => {
                 Excellent location - 500m from center
               </span>
               <span className="hotel__price-highlight">
-                Book a stay over $114 at this propertyu and get a free airport
+                Book a stay over $114 at this property and get a free airport
                 taxi
               </span>
               <div className="hotel__images">
