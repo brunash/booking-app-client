@@ -37,6 +37,7 @@ const Hotel = () => {
             <div className="hotel__address">
               <FontAwesomeIcon icon={faLocationDot} />
               <span>Elton Street 12 New York</span>
+            </div>
               <span className="hotel__distance">
                 Excellent location - 500m from center
               </span>
@@ -84,7 +85,6 @@ const Hotel = () => {
             </div>
           </div>
         </div>
-      </div>
     );
 }
 
