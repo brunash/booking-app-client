@@ -43,6 +43,20 @@ const Hotel = () => {
       setOpen(true);
     }
 
+    const handleMove = (direction) => {
+      let newSlideNumber;
+
+      if (direction === "l")
+        {
+          newSlideNumber = slideNumber === 0 ? 5 : slideNumber-1
+        }
+       else {
+      newSlideNumber = slideNumber === 5 ? 0 : slideNumber+1
+      }
+
+      setSlideNumber(newSlideNumber)
+    };
+
     return (
       <div>
         <NavBar />
@@ -50,12 +64,28 @@ const Hotel = () => {
         <div className="hotel__container">
           {open && (
             <div className="slider">
-              <FontAwesomeIcon icon={faCircleXmark} className='close' />
-              <FontAwesomeIcon icon={faCircleArrowLeft} className='arrow'/>
+              <FontAwesomeIcon
+                icon={faCircleXmark}
+                className="close"
+                onClick={() => setOpen(false)}
+              />
+              <FontAwesomeIcon
+                icon={faCircleArrowLeft}
+                className="arrow"
+                onClick={() => handleMove("l")}
+              />
               <div className="slider__wrapper">
-                <img src={photos[slideNumber].src} alt="" className='slider__image'/>
+                <img
+                  src={photos[slideNumber].src}
+                  alt=""
+                  className="slider__image"
+                />
               </div>
-              <FontAwesomeIcon icon={faCircleArrowRight} className='arrow' />
+              <FontAwesomeIcon
+                icon={faCircleArrowRight}
+                className="arrow"
+                onClick={() => handleMove("r")}
+              />
             </div>
           )}
           <div className="hotel__wrapper">
@@ -75,7 +105,7 @@ const Hotel = () => {
               {photos.map((photo, i) => (
                 <div className="hotel__image-wrapper">
                   <img
-                    onClick={ () => handleOpen(i) }
+                    onClick={() => handleOpen(i)}
                     src={photo.src}
                     alt=""
                     className="hotel__image"
