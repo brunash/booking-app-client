@@ -6,7 +6,7 @@ const Featured = () => {
     "proxy/hotels/countByCity?cities=Sombor,Rome"
   );
   //throwing an error when trying to console log the following
-  // could be an issue with port http://localhost:3000/proxy/hotels/countByCity?cities=Sombor,Rome
+   // could be an issue with port http://localhost:3000/proxy/hotels/countByCity?cities=Sombor,Rome
   console.log(data);
   return (
     <div className="featured">
