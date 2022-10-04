@@ -1,50 +1,36 @@
+import useFetch from "../../hooks/useFetch";
 import "./Popular.scss";
 
 const Popular = () => {
+  const { data, loading, error } = useFetch(
+    "http://localhost:8800/api/hotels?featured=true&limit=5"
+  );
+
   return (
     <div className="popular">
-      <div className="popular__item">
-        <img
-          src="https://r-xx.bstatic.com/xdata/images/hotel/300x240/100235855.jpeg?k=5b6e6cff16cfd290e953768d63ee15f633b56348238a705c45759aa3a81ba82b&o="
-          alt=""
-          className="popular__img"
-        />
-        <span className="popular__name">Villa Maria</span>
-        <span className="popular__city">Madrid</span>
-        <span className="popular__price">120$</span>
-        <div className="popular__rating">
-          <button>9.1</button>
-          <span>Excellent</span>
-        </div>
-      </div>
-      <div className="popular__item">
-        <img
-          src="https://r-xx.bstatic.com/xdata/images/hotel/300x240/100235855.jpeg?k=5b6e6cff16cfd290e953768d63ee15f633b56348238a705c45759aa3a81ba82b&o="
-          alt=""
-          className="popular__img"
-        />
-        <span className="popular__name">Villa Maria</span>
-        <span className="popular__city">Madrid</span>
-        <span className="popular__price">120$</span>
-        <div className="popular__rating">
-          <button>9.1</button>
-          <span>Excellent</span>
-        </div>
-      </div>
-      <div className="popular__item">
-        <img
-          src="https://r-xx.bstatic.com/xdata/images/hotel/300x240/100235855.jpeg?k=5b6e6cff16cfd290e953768d63ee15f633b56348238a705c45759aa3a81ba82b&o="
-          alt=""
-          className="popular__img"
-        />
-        <span className="popular__name">Villa Maria</span>
-        <span className="popular__city">Madrid</span>
-        <span className="popular__price">120$</span>
-        <div className="popular__rating">
-          <button>9.1</button>
-          <span>Excellent</span>
-        </div>
-      </div>
+      {loading ? (
+        "Loading"
+      ) : (
+        <>
+          {" "}
+          {data.map((item) => (
+            <div className="popular__item" key={item._id}>
+              <img
+                src={item.photos[0]}
+                alt=""
+                className="popular__img"
+              />
+              <span className="popular__name">{item.name}</span>
+              <span className="popular__city">{item.city}</span>
+              <span className="popular__price">Starting from ${item.cheapestPrice}</span>
+              {item.rating && <div className="popular__rating">
+                <button>{item.rating}</button>
+                <span>Excellent</span>
+              </div>}
+            </div>
+          ))}
+        </>
+      )}
     </div>
   );
 };

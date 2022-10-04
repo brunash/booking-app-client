@@ -22,12 +22,12 @@ const PropertyList = () => {
         <>
           {data &&
             images.map((img, i) => (
-              <div className="property__item">
+              <div className="property__item" key={i}>
                 <img className="img property__img" alt="" src={img} />
                 <div className="property__titles">
-                  <h1>{data[i].type}</h1>
+                  <h1>{data[i]?.type}</h1>
                   <h2>
-                    {data[i].count} {data[i].type}
+                    {data[i]?.count} {data[i]?.type}
                   </h2>
                 </div>
               </div>
