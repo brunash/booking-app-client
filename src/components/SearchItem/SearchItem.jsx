@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const SearchItem = ({ item }) => {
   return (
     <div className="search-item">
-      <img src={item.photosp[0]} alt="" className="search-item__image" />
+      <img src={item.photos[0]} alt="" className="search-item__image" />
       <div className="search-item__desc">
         <h1 className="search-item__title">{item.name}</h1>
         <span className="search-item__distance">
@@ -21,12 +21,12 @@ const SearchItem = ({ item }) => {
         </span>
       </div>
       <div className="search-item__details">
-        {item.rating && (
+        {item.rating && 
           <div className="search-item__rating">
             <span>Excellent</span>
             <button>{item.rating}</button>
           </div>
-        )}
+        }
         <div className="search-item__details--text">
           <span className="search-item__price">{item.cheapestPrice}</span>
           <span className="search-item__tax">Includes taxes and fees</span>
