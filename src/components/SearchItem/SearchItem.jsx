@@ -8,7 +8,7 @@ const SearchItem = ({ item }) => {
       <div className="search-item__desc">
         <h1 className="search-item__title">{item.name}</h1>
         <span className="search-item__distance">
-          {item.distance} from center
+          {item.distance}m from center
         </span>
         <span className="search-item__taxi">Free airport taxi</span>
         <span className="search-item__subtitle">

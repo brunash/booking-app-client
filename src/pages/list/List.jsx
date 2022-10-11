@@ -18,6 +18,7 @@ const List = () => {
     const [options, setOptions] = useState(location.state.options);
 
     const { data, loading, error, refetch } = useFetch(`/hotels?city=${destination}`)
+  
 
     return (
       <div>
@@ -103,7 +104,7 @@ const List = () => {
                 "loading"
               ) : (
                 <>
-                  {data.map((item) => (
+                  {data?.map(item => (
                     <SearchItem item={item} key={item._id} />
                   ))}
                 </>
