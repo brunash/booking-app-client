@@ -30,7 +30,7 @@ const SearchItem = ({ item }) => {
         <div className="search-item__details--text">
           <span className="search-item__price">{item.cheapestPrice}</span>
           <span className="search-item__tax">Includes taxes and fees</span>
-          <Link to={`/hotels/${item.id}`}>
+          <Link to={`/hotels/${item._id}`}>
             <button className="search-item__check-button">
               See availability
             </button>

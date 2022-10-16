@@ -3,7 +3,7 @@ import "./Featured.scss";
 
 const Featured = () => {
   const { data, loading, error } = useFetch(
-    "http://localhost:8800/api/hotels/countByCity?cities=Sombor,Rome"
+    "http://localhost:8080/api/hotels/countByCity?cities=Sombor,Rome"
   );
 
   //,"proxy":"http://localhost:8800/api" this can be put in the end in package.json

@@ -3,7 +3,7 @@ import "./Popular.scss";
 
 const Popular = () => {
   const { data, loading, error } = useFetch(
-    "http://localhost:8800/api/hotels?featured=true&limit=5"
+    "http://localhost:8080/api/hotels?featured=true&limit=5"
   );
   
 
